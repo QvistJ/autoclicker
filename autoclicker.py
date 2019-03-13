@@ -4,10 +4,9 @@ import cv2
 from directKeys import click
 import time
 
-gameCoords = [ val1, val2, val3, val4 ]
+gameCoords = [ 419, 378, 1021, 797 ]
 
 screen = np.array(ImageGrab.grab(bbox=gameCoords))
-screen = cv2.cvtColor(screen, cv2.COLOR_BGR2GRAY)
 
 while True:
   for i in range(1000) :
