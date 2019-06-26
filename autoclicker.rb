@@ -1,28 +1,13 @@
-require "selenium-webdriver"
+require 'launchy'
+require 'win32/screenshot'
+require 'auto_click'
+include AutoClickMethods
 
-Selenium::WebDriver::Chrome.driver_path = 'C:\Users\Jonathan Lindqvist\Downloads\chromedriver.exe'
+Launchy.open("https://www.humanbenchmark.com/tests/reactiontime")
 
-driver = Selenium::WebDriver.for :chrome
-driver.navigate.to "https://www.humanbenchmark.com/tests/reactiontime"
+mouse_move(900,300)
+sleep 0.5
+left_click
 
-element = driver.find_element(:xpath, '//*[@id="root"]/div/div[4]/div[1]/div/div[1]/div[1]/img')
-element.click
-#element.send_keys "Hello WebDriver!"
-#element.submit
-
-btn_ask_question = driver.find_element(:xpath, '//*[@id="root"]/div/div[4]/div[1]')
-p btn_ask_question.attribute(".view-go")
-
-while btn_ask_question.attribute(".view-go") == nil do # this does nopt work at all
- puts "nil!!!"
-end
-
-puts "its there!"
-
-#sleep 5
-
-puts driver.title
-
-driver.quit
-
-#940,355
+# TODO: Screenshot and search for green pixel.
+# Try and get rmagick to work because it seems to have a capture method.
